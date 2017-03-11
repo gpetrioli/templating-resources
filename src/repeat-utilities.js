@@ -59,6 +59,7 @@ export function updateOverrideContext(overrideContext, index, length) {
   overrideContext.$index = index;
   overrideContext.$first = first;
   overrideContext.$last = last;
+  overrideContext.$length = length;
   overrideContext.$middle = !(first || last);
   overrideContext.$odd = !even;
   overrideContext.$even = even;

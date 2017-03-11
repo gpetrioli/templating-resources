@@ -139,7 +139,8 @@ export class ArrayRepeatStrategy {
       // any changes to the binding context?
       if (view.bindingContext[local] === items[i]
         && view.overrideContext.$middle === middle
-        && view.overrideContext.$last === last) {
+        && view.overrideContext.$last === last
+		&& view.overrideContext.$length === itemsLength) {
         // no changes. continue...
         continue;
       }
@@ -147,6 +148,7 @@ export class ArrayRepeatStrategy {
       view.bindingContext[local] = items[i];
       view.overrideContext.$middle = middle;
       view.overrideContext.$last = last;
+      view.overrideContext.$length = itemsLength;
       repeat.updateBindings(view);
     }
     // add new views
@@ -225,12 +227,12 @@ export class ArrayRepeatStrategy {
     if (rmPromises.length > 0) {
       return Promise.all(rmPromises).then(() => {
         let spliceIndexLow = this._handleAddedSplices(repeat, array, splices);
-        updateOverrideContexts(repeat.views(), spliceIndexLow);
+        updateOverrideContexts(repeat.views(), 0);
       });
     }
 
     let spliceIndexLow = this._handleAddedSplices(repeat, array, splices);
-    updateOverrideContexts(repeat.views(), spliceIndexLow);
+    updateOverrideContexts(repeat.views(), 0);
 
     return undefined;
   }
