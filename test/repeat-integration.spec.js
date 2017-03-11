@@ -170,6 +170,7 @@ function describeArrayTests(viewsRequireLifecycle) {
       expect(overrideContext.$index).toBe(i);
       expect(overrideContext.$first).toBe(first);
       expect(overrideContext.$last).toBe(last);
+      expect(overrideContext.$length).toBe(viewModel.items.length);
       expect(overrideContext.$middle).toBe(!first && !last);
       expect(overrideContext.$odd).toBe(!even);
       expect(overrideContext.$even).toBe(even);
@@ -1055,6 +1056,7 @@ describe('Repeat map [k, v]', () => {
       expect(overrideContext.$index).toBe(i);
       expect(overrideContext.$first).toBe(first);
       expect(overrideContext.$last).toBe(last);
+      expect(overrideContext.$length).toBe(items.length);
       expect(overrideContext.$middle).toBe(!first && !last);
       expect(overrideContext.$odd).toBe(!even);
       expect(overrideContext.$even).toBe(even);
@@ -1157,6 +1159,7 @@ describe('Repeat set', () => {
       expect(overrideContext.$index).toBe(i);
       expect(overrideContext.$first).toBe(first);
       expect(overrideContext.$last).toBe(last);
+      expect(overrideContext.$length).toBe(items.length);
       expect(overrideContext.$middle).toBe(!first && !last);
       expect(overrideContext.$odd).toBe(!even);
       expect(overrideContext.$even).toBe(even);
@@ -1263,6 +1266,7 @@ describe('Repeat number', () => {
       expect(overrideContext.$index).toBe(i);
       expect(overrideContext.$first).toBe(first);
       expect(overrideContext.$last).toBe(last);
+      expect(overrideContext.$length).toBe(viewModel.items);
       expect(overrideContext.$middle).toBe(!first && !last);
       expect(overrideContext.$odd).toBe(!even);
       expect(overrideContext.$even).toBe(even);
